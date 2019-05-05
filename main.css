@@ -7,3 +7,15 @@
 body{
 	background: #D5B9B2;
 }
+
+.column{
+	display: inline-block;
+	margin: 0 auto auto auto;
+	align-content: center;
+	text-align: justify;
+}
+
+.row{
+	align-content: center;
+	text-align: center;
+}

@@ -1,0 +1,67 @@
+.name{
+	/*color: #582C4D;*/
+	color: #ED7CCF;
+	text-align: center;
+	font-size: 65px;
+	font-family: 'Arimo', sans-serif;
+}
+
+span{
+	color: #ED7CCF;
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Arimo', sans-serif;
+}
+
+header{
+	/*background: grey;*/
+	/*padding: 10px;*/
+	/*opacity: .7; */
+}
+
+body{
+	/*background: #D5B9B2;*/
+	/*background: url("background.jpg");*/
+	background: url(waves.jpg);
+/*	background-size: cover;*/
+}
+
+.column{
+	float: left;
+	width: 33.33%;
+}
+
+.row::after{
+	content:"";
+	clear: both;
+	display: table;
+}
+
+nav{
+	color: #ED7CCF; 
+}
+
+a:visited{
+	color: #F9B4DE;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #ED7CCF;
+	text-decoration: none;
+}
+
+a:link{
+	color: #F9B4DE;
+	text-decoration: none;
+}
+
+.overlay{
+	opacity: 1;
+	transition: .3s ease;
+}
+
+.overlay:hover{
+	opacity: .5;
+	background: black;
+}
