@@ -1,0 +1,554 @@
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WebVR Musical Instrument</title>
+  <!-- A-Frame CDN -->
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <!-- Tone.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.10.0/Tone.min.js" charset="utf-8"></script>
+  <!-- Our Synth Component -->
+  <script src="synth-component.js" charset="utf-8"></script>
+  <script src="synth2-component.js" charset="utf-8"></script>
+  <script src="synth3-component.js" charset="utf-8"></script>
+  <script src="synth4-component.js" charset="utf-8"></script>
+  <!-- <script src="player-component.js"></script> -->
+  <script src="sound-player.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <!-- A-Frame scene -->
+  <a-scene antialias="true">
+    <!-- plain white background -->
+    <a-sky src="img/bluesky.jpg"></a-sky>
+    <!-- our scene's camera -->
+    <a-camera position="0 2.25 2" user-height="0" wasd-controls="enabled: false">
+      <!-- cursor with fuse enabled, allowing us to detect when it hovers over an entity -->
+      <a-cursor fuse="true"></a-cursor>
+    </a-camera>
+
+    <!-- Room -->
+      <!-- Floor -->
+      <a-box id="floor"
+        position="0 -1 0"
+        geometry="height: 1; width: 15; depth: 10"
+        src="img/floor.jpg"
+      ></a-box>
+
+      <!-- Walls -->
+      <a-box id="wall-front"
+        position="0 2 -5.5"
+        geometry="height: 6; width: 15; depth: 1"
+        color="#FFA500"
+        cursor="fuse: false"
+        src="img/walls.jpg">
+      </a-box>
+
+      <a-box id="wall-right"
+        position="4.5 2 0"
+        geometry="height: 6; width: 10; depth: 1"
+        rotation="0 90 0"
+        color="#FFA500"
+        cursor="fuse: false"
+        src="img/walls.jpg">
+      </a-box>
+
+      <a-box id="wall-back"
+        position="0 2 5.5"
+        geometry="height: 6; width: 15; depth: 1"
+        color="#FFA500"
+        cursor="fuse: false"
+        src="img/walls.jpg">
+      </a-box>
+
+      <a-box id="wall-left"
+        position="-4.5 2 0"
+        geometry="height: 6; width: 10; depth: 1"
+        rotation="0 90 0"
+        color="#FFA500"
+        cursor="fuse: false"
+        src="img/walls.jpg">
+      </a-box>
+
+
+    <!-- Synth Boxes -->
+    <!-- SYNTH 1 ==== in C major ==== -->
+    <a-entity id="synth1" position="-0.5 4.5 -4">
+      <!-- Snyth box 1 -->
+      <a-box
+        id="box1"
+        position="-3 0 0"
+        synth="note: C4"
+        color="#1b4f72"
+        segments-theta="64"
+        animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 2 -->
+        <a-box
+          position="-2 0 0"
+          synth="note: D4"
+          color="#21618c"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 3-->
+        <a-box
+          position="-1 0 0"
+          synth="note: E4"
+          color="#2874a6"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 4 -->
+        <a-box
+          position="0 0 0"
+          synth="note: F4"
+          color="#2e86c1"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 5 -->
+        <a-box
+          position="1 0 0"
+          synth="note: G4"
+          color="#3498db"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 6 -->
+        <a-box
+          position="2 0 0"
+          synth="note: A4"
+          color="#5dade2"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 7 -->
+        <a-box
+          position="3 0 0"
+          synth="note: B4"
+          color="#85c1e9"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth box 8 -->
+        <a-box
+          position="4 0 0"
+          synth="note: C5"
+          color="#aed6f1"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+      </a-entity>
+
+      <!-- SYNTH 2 ==== in F major ==== -->
+      <a-entity id="synth2" position=" -0.5 3 -4">
+
+        <!-- Snyth2 box 1 -->
+        <a-box
+        id="box1"
+        position="-3 0 0"
+        synth2="note: C4"
+        color="#145a32"
+        segments-theta="64"
+        animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 2 -->
+        <a-box
+          position="-2 0 0"
+          synth2="note: D4"
+          color="#196f3d"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 3-->
+        <a-box
+          position="-1 0 0"
+          synth2="note: E4"
+          color="#1e8449"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 4 -->
+        <a-box
+          position="0 0 0"
+          synth2="note: F4"
+          color="#229954"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 5 -->
+        <a-box
+          position="1 0 0"
+          synth2="note: G4"
+          color="#27ae60"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 6 -->
+        <a-box
+          position="2 0 0"
+          synth2="note: A4"
+          color="#52be80"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 7 -->
+        <a-box
+          position="3 0 0"
+          synth2="note: B4"
+          color="#7dcea0"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth2 box 8 -->
+        <a-box
+          position="4 0 0"
+          synth2="note: C5"
+          color=" #a9dfbf"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+    </a-entity>
+
+      <!-- SYNTH 3 ==== in C minor ================================================================ -->
+      <a-entity id="synth3" position="-0.5 1.5 -4">
+        <!-- Snyth3 box 1 -->
+        <a-box
+        id="box1"
+        position="-3 0 0"
+        synth3="note: C4"
+        color="#78281f"
+        segments-theta="64"
+        animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 2 -->
+        <a-box
+          position="-2 0 0"
+          synth3="note: D4"
+          color="#943126"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 3-->
+        <a-box
+          position="-1 0 0"
+          synth3="note: E4"
+          color="#b03a2e"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 4 -->
+        <a-box
+          position="0 0 0"
+          synth3="note: F4"
+          color="#cb4335"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 5 -->
+        <a-box
+          position="1 0 0"
+          synth3="note: G4"
+          color="#e74c3c"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 6 -->
+        <a-box
+          position="2 0 0"
+          synth3="note: A4"
+          color="#ec7063"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 7 -->
+        <a-box
+          position="3 0 0"
+          synth3="note: B4"
+          color="#f1948a"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+
+        <!-- Synth3 box 8 -->
+        <a-box
+          position="4 0 0"
+          synth3="note: C5"
+          color="#f5b7b1"
+          segments-theta="64"
+          animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+        ></a-box>
+      </a-entity>
+
+      <!-- SYNTH 4 ==== in C minor ================================================================ -->
+      <a-entity id="synth3" position="-0.5 0 -4">
+          <!-- Snyth4 box 1 -->
+          <a-box
+            id="box1"
+            position="-3 0 0"
+            synth4="note: C4"
+            color="#4a235a"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 2 -->
+          <a-box
+            position="-2 0 0"
+            synth4="note: D4"
+            color="#5b2c6f"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 3-->
+          <a-box
+            position="-1 0 0"
+            synth4="note: E4"
+            color="#6c3483"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 4 -->
+          <a-box
+            position="0 0 0"
+            synth4="note: F4"
+            color="#7d3c98"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 5 -->
+          <a-box
+            position="1 0 0"
+            synth4="note: G4"
+            color="#8e44ad"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 6 -->
+          <a-box
+            position="2 0 0"
+            synth4="note: A4"
+            color="#a569bd"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+          <!-- Synth4 box 7 -->
+          <a-box
+            position="3 0 0"
+            synth4="note: B4"
+            color="#bb8fce"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+
+           <!-- Synth4 box 8 -->
+          <a-box
+            position="4 0 0"
+            synth4="note: C5"
+            color="#d2b4de"
+            segments-theta="64"
+            animation__op="property: opacity; startEvents:fusing; dur:500; from:0.5; to:1;"
+          ></a-box>
+        </a-entity>
+
+      <!-- Album Covers -->
+      <a-box
+        audio-handler
+        width="1.5"
+        height="1.5"
+        depth="0.01"
+        position="3.5 1 0"
+        src="./img/pinkAlbum.jpg"
+        rotation="0 90 0">
+        <audio src="./sounds/electropop.mp3" preload="auto"></audio>
+      </a-box>
+      <a-box
+        audio-handler
+        src="./img/badRomance.png"
+        rotation="0 90 0"
+        width="1.5"
+        height="1.5"
+        depth="0.01"
+        position="3.5 1 2"
+        volume="0.5">
+        <audio id="br" src="./sounds/badRomance.mp3" preload="auto"></audio>
+      </a-box>
+      <a-box
+        audio-handler
+        width="1.5"
+        height="1.5"
+        depth="0.01"
+        position="3.5 2.7 0"
+        src="./img/journey.jpg"
+        rotation="0 90 0">
+        <audio src="./sounds/journey.mp3" preload="auto"></audio>
+      </a-box>
+      <a-box
+        audio-handler
+        width="1.5"
+        height="1.5"
+        depth="0.01"
+        position="3.5 2.7 2"
+        src="./img/rihanna.png"
+        rotation="0 90 0">
+        <audio src="./sounds/weFoundLove.mp3" preload="auto"></audio>
+      </a-box>
+      <!-- drums -->
+      <a-assets>
+        <a-asset-item id="drum-obj" src="./objects/drum/conga-hand-drum.obj"></a-asset-item>
+        <a-asset-item id="drum-mtl" src="./objects/drum/conga-hand-drum.mtl"></a-asset-item>
+        <a-asset-item id="chair-obj" src="./objects/chair/chair.obj"></a-asset-item>
+        <a-asset-item id="chair-mtl" src="./objects/chair/chair.mtl"></a-asset-item>
+        <a-asset-item id="bird-obj" src="./objects/bird/raven.obj"></a-asset-item>
+        <a-asset-item id="bird-mtl" src="./objects/bird/raven.mtl"></a-asset-item>
+      </a-assets>
+
+      <!-- Objects with sounds -->
+      <!-- All objects with mtls and sounds must have a child <audio> tag. this tag has a src, loop (default is false), and preload properties. -->
+
+      <a-entity id="drum"
+        audio-handler
+        position="-3.4 0 0.42"
+        obj-model="obj: #drum-obj; mtl: #drum-mtl">
+        <audio src="./sounds/beat.mp3" loop="true" preload="auto"></audio>
+      </a-entity>
+
+      <!-- Plantpot -->
+      <a-assets>
+        <a-asset-item id="plantpot-obj" src="./objects/plantpot/flower.obj"></a-asset-item>
+        <a-asset-item id="plantpot-mtl" src="./objects/plantpot/flower.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-entity id="plantpot1"
+        audio-handler
+        position="-3.5 -0.5 -2"
+        obj-model="obj: #plantpot-obj; mtl: #plantpot-mtl" scale="0.02 0.02 0.02">
+        <audio src="./sounds/zing.mp3" preload="auto"></audio>
+      </a-entity>
+
+      <a-entity id="plantpot2"
+        audio-handler
+        position="3.5 -0.5 -2"
+        obj-model="obj: #plantpot-obj; mtl: #plantpot-mtl" scale="0.02 0.02 0.02">
+        <audio src="./sounds/cymbal.wav" preload="auto"></audio>
+      </a-entity>
+
+      <!-- Plantpot2 -->
+      <a-assets>
+        <a-asset-item id="plantpot2-obj" src="./objects/plantpot2/D_Plant.obj"></a-asset-item>
+        <a-asset-item id="plantpot2-mtl" src="./objects/plantpot2/D_Plant.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-entity id="plantpot3"
+        audio-handler
+        position="-0.5 0 4.3"
+        obj-model="obj: #plantpot2-obj; mtl: #plantpot2-mtl" scale="0.01 0.01 0.01" rotation="270 0 0">
+        <audio src="./sounds/triangle.wav" preload="auto"></audio>
+      </a-entity>
+
+      <a-entity id="plantpot4"
+        audio-handler
+        position="2.6 0 4.25"
+        obj-model="obj: #plantpot2-obj; mtl: #plantpot2-mtl" scale="0.015 0.015 0.015" rotation="270 0 0">
+        <audio src="./sounds/bass.wav" preload="auto"></audio>
+      </a-entity>
+
+      <!-- Flower base -->
+      <a-assets>
+        <a-asset-item id="flower_base-obj" src="./objects/flower_base/Flower vase.obj"></a-asset-item>
+        <a-asset-item id="flower_base-mtl" src="./objects/flower_base/Flower vase.mtl"></a-asset-item>
+      </a-assets>
+
+      <!-- Stuff on table -->
+      <a-entity id="tableStuff" position="3.25 0 0.25">
+
+        <!-- Table -->
+        <a-entity id="table"
+        audio-handler
+        position="-5.743 0 3.279"
+        obj-model="obj: #table-obj; mtl: #table-mtl" scale=".7 .7 .7">
+        <audio src="./sounds/table.wav" preload="auto"></audio>
+        </a-entity>
+
+        <!-- Chairs -->
+        <a-entity id="chair1" audio-handler="" position="-6.66722 0 3.55032" rotation="0 87.033 0" obj-model="obj: ./objects/chair/chair.obj; mtl: ./objects/chair/chair.mtl" scale="0.02 0.02 0.02">
+          <audio src="./sounds/chair.wav" preload="auto"></audio>
+        </a-entity>
+
+        <a-entity id="chair2" audio-handler="" position="-6.08 0 2.4" rotation="0 10 0" obj-model="obj: ./objects/chair/chair.obj; mtl: ./objects/chair/chair.mtl" scale="0.02 0.02 0.02">
+          <audio src="./sounds/chair.wav" preload="auto"></audio>
+        </a-entity>
+
+        <a-entity id="chair3" audio-handler="" position="-5.80649 0 4.06765" rotation=" 0 161.465 0" obj-model="obj: ./objects/chair/chair.obj; mtl: ./objects/chair/chair.mtl" scale="0.02 0.02 0.02">
+          <audio src="./sounds/chair.wav" preload="auto"></audio>
+        </a-entity>
+
+        <!-- Bird -->
+        <a-entity id="bird"
+        audio-handler=""
+        animation="property: position; to: 8 4.5; dur: 2000; easing: linear; loop: true;"
+        position="-10 6.466 -4.5" rotation="0 113.809 90" obj-model="obj: ./objects/bird/raven.obj; mtl: ./objects/bird/raven.mtl" scale="0.250 0.250 0.250">
+          <audio src="./sounds/canary.mp3" preload="auto"></audio>
+        </a-entity>
+
+         <!-- coffe cup -->
+       <a-entity id="coffee"
+          audio-handler
+          position="-5.5 0.9 2.8"
+          obj-model="obj: ./objects/coffee-cup/coffee-cup.obj; mtl: ./objects/coffee-cup/coffee-cup.mtl"
+          scale="2 2 2">
+          <audio src="./sounds/honk.wav" preload="auto" class=""></audio>
+        </a-entity>
+
+        <a-entity id="flower_base"
+          audio-handler
+          position="-6.2 0.9 3.25"
+          obj-model="obj: #flower_base-obj; mtl: #flower_base-mtl" scale="0.015 0.015 0.015">
+          <audio src="./sounds/triangle.wav" preload="auto"></audio>
+        </a-entity>
+
+      </a-entity>
+
+
+
+      <!-- Table -->
+      <a-assets>
+        <a-asset-item id="table-obj" src="./objects/wooden-coffe-table-obj/wooden-coffe-table.obj"></a-asset-item>
+        <a-asset-item id="table-mtl" src="./objects/wooden-coffe-table-obj/wooden-coffe-table.mtl"></a-asset-item>
+        <a-asset-item id="coffee-obj" src="./objects/coffee-cup/coffee-cup.obj"></a-asset-item>
+        <a-asset-item id="coffee-mtl" src="./objects/coffee-cup/coffee-cup.mtl"></a-asset-item>
+      </a-assets>
+
+
+  </a-scene>
+</body>
+
+</html>
