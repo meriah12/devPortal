@@ -1,0 +1,29 @@
+@import "icon/*.png";
+@include all-icon-sprites;
+ body {
+ 	background: #A4B7DF;
+  }
+.title{
+	text-align: center;
+	font-size: 50px;
+	font-family: 'Exo 2', sans-serif;
+}
+
+li{
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+		a{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			//transition: all 1s ease;
+
+			span{
+				position: center;
+				top: -9999em;
+				left: -9999em;
+			}
+		}
+}
+
