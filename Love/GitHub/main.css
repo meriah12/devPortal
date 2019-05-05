@@ -1,0 +1,51 @@
+body{
+	background-image: url(valentines_day.jpg);
+	background-repeat: no-repeat;
+	background-size: 1550px 850px;
+}
+
+.text{
+	position: absolute;
+	bottom: -350px;
+	right: 50px;
+	color: black;
+	font-size: 16px;
+	font-family: 'Indie Flower', cursive;
+	width: 500px;
+	padding: 20px;
+	border: 5px solid gray;
+	margin: 400px; 
+	background-color: black;
+	color: white;
+	opacity: .74;
+	
+}
+
+ul{
+	list-style-type: none;
+	overflow: hidden;
+	/*position: fixed;*/
+	bottom: 0;
+}
+
+li{
+	float: right;
+	border-right: 1px solid #bbb;
+}
+li a{
+	display: block;
+	color: black;
+	padding: 14px 16px;
+	text-decoration: none;
+	bottom: 100px;
+	font-size: 20px;
+
+}
+
+li:first-child{
+	border-right: none;
+}
+
+li a:hover:not(.active){
+	background-color: grey;
+}
