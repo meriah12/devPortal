@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AFRAME basics</title>
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<!-- 	<script type="js/aframe.js"></script>//to use locally, with no internet
+	<script type="js/aframe.min.js"></script> //to use locally with no internet-->
+</head>
+<body>
+	<a-scene>
+		<a-box position="-1 .5 0" color="yellow" scale=".5 1.5 .5" rotation="0 30 0" src="img/marble.jpg" animation="property:rotation; dur:2000; loop:true; from:0 0 0; to:0 360 0; easing:linear;"></a-box> <!-- x y and z coordinates -->
+		<a-camera position="0 0 3" user-height="0"></a-camera>
+		<a-cylinder positon="-1 .5 0" color="crimson" height=".5" radius=".5"></a-cylinder>
+		<a-cone position="-1 .5 0" scale=".5 .5 .5" color="tomato" radius-bottom="2" radius-top="0.5"></a-cone>
+		<a-sky color="pink"></a-sky>
+	</a-scene>
+</body>
+</html>

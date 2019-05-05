@@ -1,0 +1,14 @@
+$icon-layout:horizontal;
+@import "icon/*.png";
+@include all-icon-sprites;
+
+.my-animation{
+	width: 200px;
+	height: 267px;
+	background: url('../img/icon-sc8bd24f5e6.png') left center;
+	animation: play 0.8s steps(9) infinite;
+}
+
+@keyframes play{
+	100% { background-position: -1800px;}
+}

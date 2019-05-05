@@ -1,0 +1,71 @@
+.icon-sprite, .icon-pimg1, .icon-pimg2, .icon-pimg3, .icon-pimg4, .icon-pimg5, .icon-pimg6, .icon-pimg7, .icon-pimg8, .icon-pimg9 {
+  background-image: url('../img/icon-sc8bd24f5e6.png');
+  background-repeat: no-repeat;
+}
+
+.icon-pimg1 {
+  background-position: 0 0;
+}
+
+.icon-pimg2 {
+  background-position: -200px 0;
+}
+
+.icon-pimg3 {
+  background-position: -400px 0;
+}
+
+.icon-pimg4 {
+  background-position: -600px 0;
+}
+
+.icon-pimg5 {
+  background-position: -800px 0;
+}
+
+.icon-pimg6 {
+  background-position: -1000px 0;
+}
+
+.icon-pimg7 {
+  background-position: -1200px 0;
+}
+
+.icon-pimg8 {
+  background-position: -1400px 0;
+}
+
+.icon-pimg9 {
+  background-position: -1600px 0;
+}
+
+.my-animation {
+  width: 200px;
+  height: 267px;
+  background: url("../img/icon-sc8bd24f5e6.png") left center;
+  animation: play 1.8s steps(9) infinite;
+}
+
+@keyframes play {
+  100% {
+    background-position: -1800px;
+  }
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 70px;
+}
+
+body{
+  background: black;
+}
